@@ -1,0 +1,11 @@
+prefix=/home/edvonaldoh/Documents/Git/tcc-codes-refactored
+exec_prefix=/home/edvonaldoh/Documents/Git/tcc-codes-refactored
+libdir=/home/edvonaldoh/Documents/Git/tcc-codes-refactored/lib
+includedir=/home/edvonaldoh/Documents/Git/tcc-codes-refactored/include
+
+Name: uuid
+Description: Universally unique id library
+Version: 2.32.1
+Requires:
+Cflags: -I${includedir}/uuid
+Libs: -L${libdir} -luuid
