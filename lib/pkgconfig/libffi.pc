@@ -1,0 +1,11 @@
+prefix=/home/edvonaldoh/Documents/Git/tcc-codes-refactored
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+toolexeclibdir=${libdir}
+includedir=/home/edvonaldoh/Documents/Git/tcc-codes-refactored/include
+
+Name: libffi
+Description: Library supporting Foreign Function Interfaces
+Version: 3.4.4
+Libs: -L${toolexeclibdir} -lffi
+Cflags: -I${includedir}
