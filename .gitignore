@@ -4,11 +4,6 @@ __pycache__/
 *.pyo
 
 # Ambiente virtual
-venv/
-env/
-lib/
-bin/
-include/
 
 # Ignore directories
 data/
