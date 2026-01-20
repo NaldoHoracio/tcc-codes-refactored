@@ -1,6 +1,17 @@
 # Ignore Python cache files
 __pycache__/
 *.pyc
+*.pyo
+
+# Ambiente virtual
+venv/
+env/
+lib/
+bin/
+include/
 
 # Ignore directories
 data/
+data-raw/
+*.csv
+*.txt
