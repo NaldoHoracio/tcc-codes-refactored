@@ -1,12 +1,15 @@
-# Ignore Python cache files
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Variáveis de ambiente
+.env
+
+# Cache do Python
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
 
-# Ambiente virtual
-
-# Ignore directories
+# Diretorios e outros arquivos
 data/
-data-raw/
-*.csv
 *.txt
