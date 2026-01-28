@@ -20,7 +20,6 @@ def seconds_transform(seconds_time:float):
     print("Time: ", (hours), "h ", (minutes), "min ", round(seconds,2), " s")
 
 
-# Controle de build
 def version_file(name_file:str, fields:str, rows_version):
     """
     Esta funcao cria ou atualiza o arquivo de versao do build

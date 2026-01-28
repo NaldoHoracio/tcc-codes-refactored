@@ -7,7 +7,7 @@ Este script processa os microdados do ENADE, realizando seleções e salvando os
 from pathlib import Path
 import time
 import pandas as pd
-from helper_functions import seconds_transform
+from src.helper_functions import seconds_transform
 
 
 def seleciona_microdados_enade(
@@ -89,3 +89,6 @@ def run():
         prefix_saida="BR",
         paths_out="./data/data-selected/"
     )
+
+if __name__ == "__main__":
+    run()
