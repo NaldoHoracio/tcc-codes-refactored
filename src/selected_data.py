@@ -7,10 +7,10 @@ Este script processa os microdados do ENADE, realizando seleções e salvando os
 from pathlib import Path
 import time
 import pandas as pd
-from helper.helper_functions import seconds_transform
+from helper_functions import seconds_transform
 
 
-def processa_microdados_enade(
+def seleciona_microdados_enade(
     paths_in: dict,
     uf_excluir: int = 27,
     samples: dict | None = None,
@@ -19,7 +19,7 @@ def processa_microdados_enade(
     paths_out: str = "/data/data-raw/"
 ):
     """
-    Processa microdados do ENADE para múltiplos anos.
+    Seleciona microdados do ENADE para múltiplos anos.
 
     Etapas:
     - Leitura dos arquivos
@@ -63,3 +63,29 @@ def processa_microdados_enade(
     elapsed = time.time() - start_time
     print(f"\nProcessamento finalizado em {elapsed:.2f} segundos")
     seconds_transform(elapsed)
+
+def run():
+    """
+    Função de execução padrão
+    """
+    paths = {
+        2014: "./data/data-raw/microdados_enade_2014/3.DADOS/MICRODADOS_ENADE_2014.txt",
+        2015: "./data/data-raw/microdados_enade_2015/3.DADOS/MICRODADOS_ENADE_2015.txt",
+        2016: "./data/data-raw/microdados_enade_2016/3.DADOS/MICRODADOS_ENADE_2016.txt",
+        2018: "./data/data-raw/microdados_enade_2018/3.DADOS/microdados_enade_2018.txt",
+    }
+
+    samples = {
+        2014: 7257,
+        2015: 5469,
+        2016: 3559,
+        2018: 5482,
+    }
+
+    seleciona_microdados_enade(
+        paths_in=paths,
+        uf_excluir=27,
+        samples=samples,
+        prefix_saida="BR",
+        paths_out="./data/data-selected/"
+    )
