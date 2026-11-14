@@ -1,90 +1,82 @@
-# tcc-codes-refactored
+# TCC — Processamento dos microdados do ENADE
 
-Este repositório contém códigos em **Python** refatorados e organizados, desenvolvidos no contexto de um **Trabalho de Conclusão de Curso (TCC)**.
-O objetivo principal é melhorar legibilidade, organização, reutilização e boas práticas de desenvolvimento.
+Repositório de código do Trabalho de Conclusão de Curso, destinado à seleção, integração e pré-processamento dos microdados do ENADE para experimentos de aprendizado de máquina.
 
-## 📌 Descrição
+## Fluxo do projeto
 
-O **tcc-codes-refactored** reúne scripts e módulos Python que passaram por processo de refatoração, visando:
+1. **Seleção:** leitura dos microdados originais, exclusão da UF configurada, remoção de registros com valores ausentes e amostragem opcional.
+2. **Pré-processamento:** seleção das variáveis de interesse, integração dos conjuntos, tratamento da variável-alvo `NT_GER` e one-hot encoding das variáveis `QE_I01` a `QE_I26`.
+3. **Modelagem e avaliação:** módulos reservados para implementação dos experimentos e análise dos resultados.
 
-* Melhor organização do código
-* Uso de boas práticas (PEP 8, modularização)
-* Facilidade de manutenção e extensão
-* Clareza para fins acadêmicos e didáticos
-
-O projeto pode ser utilizado como base de estudo, referência ou ponto de partida para novos trabalhos acadêmicos.
-
-## 🐍 Tecnologias Utilizadas
-
-* **Python 3.x**
-* Bibliotecas padrão do Python
-* Outras bibliotecas podem ser adicionadas conforme o módulo (ver `requirements.txt`)
-
-## 📂 Estrutura do Projeto
+## Estrutura
 
 ```text
 tcc-codes-refactored/
-├── src/                 # Código-fonte principal
-│   ├── __init__.py
-│   └── main.py          # Arquivo principal de execução
-├── modules/             # Módulos auxiliares (opcional)
-├── tests/               # Testes automatizados (opcional)
-├── requirements.txt     # Dependências do projeto (opcional)
-└── README.md            # Documentação do projeto
+├── data/
+│   ├── data-raw/          # Microdados originais (não versionados)
+│   ├── data-selected/     # Conjuntos selecionados
+│   └── processed/         # Resultados gerados (não versionados)
+├── src/
+│   ├── data_processing/   # Seleção e pré-processamento
+│   ├── evaluation/        # Avaliação dos modelos
+│   ├── models/            # Modelos e treinamento
+│   ├── utils/             # Funções auxiliares
+│   ├── config.py
+│   └── main.py
+├── tests/
+├── requirements.txt
+└── README.md
 ```
 
-## ▶️ Como Executar
+## Requisitos
 
-1. Clone o repositório:
+- Python 3.10 ou superior.
+- Dependências listadas em `requirements.txt`.
 
-   ```bash
-   git clone https://github.com/seu-usuario/tcc-codes-refactored.git
-   ```
-
-2. Acesse o diretório do projeto:
-
-   ```bash
-   cd tcc-codes-refactored
-   ```
-
-3. (Opcional) Crie e ative um ambiente virtual:
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # Linux/Mac
-   venv\Scripts\activate      # Windows
-   ```
-
-4. (Opcional) Instale as dependências:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. Execute o projeto:
-
-   ```bash
-   python src/main.py
-   ```
-
-## 📖 Exemplos de Uso
-
-Os scripts podem ser executados individualmente ou integrados a outros módulos Python.
-Consulte os comentários no código para entender o funcionamento de cada parte.
-
-## 🧪 Testes
-
-Caso existam testes automatizados:
+## Instalação
 
 ```bash
-pytest tests/
+git clone <URL_DO_REPOSITORIO>
+cd tcc-codes-refactored
+python3 -m venv .venv
+source .venv/bin/activate  # Linux/macOS
+# Windows PowerShell: .venv\\Scripts\\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
-## 📄 Licença
+## Dados
 
-Este projeto está sob a licença **MIT**.
-Você pode utilizá-lo, modificá-lo e distribuí-lo livremente, mantendo os devidos créditos.
+Coloque os microdados originais na estrutura esperada pelo projeto em `data/data-raw/`. Os arquivos selecionados utilizados pelo fluxo principal devem estar em `data/data-selected/`, com os nomes `BR_2014.csv`, `BR_2015.csv`, `BR_2016.csv` e `BR_2018.csv`.
 
-## 👤 Autor
+Os arquivos de dados podem estar sujeitos a condições próprias de distribuição. Verifique as condições de uso da fonte antes de compartilhá-los.
 
-Desenvolvido por **Edvonaldo Horácio**.
+## Execução
+
+Com os arquivos selecionados disponíveis:
+
+```bash
+python -m src.main
+```
+
+O comando integra e pré-processa os conjuntos, gravando em `data/processed/`:
+
+- `features.csv`: matriz de atributos após one-hot encoding;
+- `labels.csv`: variável-alvo `NT_GER`;
+- `dataset_preprocessed.csv`: conjunto integrado antes do one-hot encoding.
+
+A rotina de seleção dos microdados originais pode ser chamada por `select_enade_microdata`, em `src/data/selection.py`, informando os caminhos de entrada e o diretório de saída.
+
+## Testes
+
+```bash
+pytest -q
+```
+
+## Autor
+
+Desenvolvido por **Edvonaldo Horácio** (edvonaldohoracio@gmail.com).
+
+## Licença
+
+Este projeto está sob a licença MIT. Você pode utilizá-lo, modificá-lo e distribuí-lo livremente, mantendo os devidos créditos.
