@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import logging
 
+import time
 import pandas as pd
 
 from src.analysis.descriptive import aggregate_question_importance, describe_target
@@ -23,6 +24,8 @@ logger = logging.getLogger(__name__)
 
 
 def main() -> None:
+    print("Experimentos começando...", flush=True)
+    total_started = time.perf_counter()
     features_path = PROCESSED_DATA_DIR / "features.csv"
     labels_path = PROCESSED_DATA_DIR / "labels.csv"
     if not features_path.is_file() or not labels_path.is_file():

@@ -6,8 +6,8 @@ import logging
 import pandas as pd
 
 from src.config import PROCESSED_DATA_DIR
-from src.processing_data.ingestion import load_selected_datasets
-from src.processing_data.preprocessing import preprocess_enade
+from src.data_processing.ingestion import load_selected_datasets
+from src.data_processing.preprocessing import preprocess_enade
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)

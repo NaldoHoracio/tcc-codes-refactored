@@ -22,6 +22,7 @@ def compare_regressors(
     test_size: float = 0.33,
     random_state: int = 42,
     n_jobs: int | None = None,
+    verbose: int = 0,
 ) -> tuple[pd.DataFrame, dict[str, pd.DataFrame], dict[str, object]]:
     """Compara os modelos seguindo o desenho do script compare_methods original.
 
@@ -78,6 +79,7 @@ def compare_regressors(
             scoring=scoring,
             return_estimator=True,
             n_jobs=n_jobs,
+            verbose=verbose,
         )
         elapsed = time.perf_counter() - started
 
