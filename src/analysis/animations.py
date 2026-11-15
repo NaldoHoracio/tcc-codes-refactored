@@ -240,12 +240,12 @@ def animate_model_comparison(tables_dir: Path = EXPERIMENTS_TABLES_DIR,
     fig, ax = _new_figure()
     fig.subplots_adjust(left=0.22, right=0.95, top=0.78, bottom=0.13)
     _title(fig, "Desempenho dos modelos de regressão",
-           "R² médio e barras de erro (desvio-padrão)")
+           "R²-score médio e barras de erro (desvio-padrão)")
 
     x_max = max(m["cv_r2_mean"].max() + m["cv_r2_std"].max()
                 for m in metrics.values()) * 1.18
     ax.set_xlim(0, x_max)
-    ax.set_xlabel("R²", color=TEXT_SECONDARY, fontsize=9.5)
+    ax.set_xlabel("R²-score", color=TEXT_SECONDARY, fontsize=9.5)
     ax.xaxis.set_major_formatter(
         plt.FuncFormatter(lambda v, _: f"{v:.3f}".replace(".", ",")))
     ax.grid(axis="y", visible=False)
@@ -328,14 +328,14 @@ def animate_question_importance(tables_dir: Path = EXPERIMENTS_TABLES_DIR,
     fig, ax = _new_figure()
     fig.subplots_adjust(left=0.33, right=0.95, top=0.78, bottom=0.13)
     _title(fig, f"Fatores socioeconômicos que mais impactaram no {MODEL_LABELS.get(model, model)}",
-           f"Impacto de cada fator socioeconômico na obtenção da nota do unade usando {MODEL_LABELS.get(model, model)} (em %)")
+           f"Impacto de cada fator socioeconômico na obtenção da nota do ENADE com {MODEL_LABELS.get(model, model)} (em %)")
     x_max = union.to_numpy().max() * 1.2
     ax.set_xlim(0, x_max)
     ax.set_ylim(top_n - 0.4, -0.6)
     ax.set_yticks([])
     ax.spines["left"].set_visible(False)
     ax.grid(axis="y", visible=False)
-    ax.set_xlabel("% da importância total", color=TEXT_SECONDARY, fontsize=9.5)
+    ax.set_xlabel("Importância da variável (em %)", color=TEXT_SECONDARY, fontsize=9.5)
 
     bars = ax.barh(np.arange(top_n), np.zeros(top_n), height=0.68)
     names = [
