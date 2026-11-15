@@ -9,6 +9,18 @@ Repositório de código do Trabalho de Conclusão de Curso, destinado à seleç�
 3. **Modelagem e avaliação:** módulos reservados para implementação dos experimentos e análise dos resultados.
 4. **Plot de gráficos:** Plotagem de gráficos de alguns fatores socioeconômicos.
 
+## Resultados em destaque
+
+Os gráficos abaixo são animados. Clique em cada um para abrir a versão estática em alta resolução.
+
+[![Distribuição da nota geral (NT_GER) em Alagoas e no Brasil](resultados/imagens/animacoes/distribuicao_nt_ger.gif)](resultados/imagens/animacoes/distribuicao_nt_ger.png)
+
+> O pico próximo à média de cada região corresponde aos valores ausentes de `NT_GER`, que o pré-processamento preenche com a média.
+
+[![Desempenho dos modelos de regressão (R² na validação cruzada)](resultados/imagens/animacoes/comparacao_modelos.gif)](resultados/imagens/animacoes/comparacao_modelos.png)
+
+[![Questões socioeconômicas mais importantes segundo a Random Forest](resultados/imagens/animacoes/importancia_questoes.gif)](resultados/imagens/animacoes/importancia_questoes.png)
+
 ## Estrutura
 
 ```text
@@ -17,8 +29,12 @@ tcc-codes-refactored/
 │   ├── data-raw/          # Microdados originais (não versionados)
 │   ├── data-selected/     # Conjuntos selecionados
 │   └── processed/         # Resultados gerados (não versionados)
+├── resultados/
+│   ├── estatisticas/      # CSVs com estatísticas gerais do ENADE (Alagoas e Brasil)
+│   ├── imagens/           # Gráficos estáticos e animados (Alagoas e Brasil)
+│   └── tabelas/           # CSVs com resultados dos treinamentos e importância das variáveis
 ├── src/
-│   ├── analysis/          # Plotagem de gráficos
+│   ├── analysis/          # Plotagem de gráficos e animações
 │   ├── data_processing/   # Seleção e pré-processamento
 │   ├── evaluation/        # Avaliação dos modelos
 │   ├── models/            # Modelos e treinamento
@@ -29,6 +45,12 @@ tcc-codes-refactored/
 ├── requirements.txt
 └── README.md
 ```
+
+A pasta `resultados/` reúne as saídas do projeto e está dividida em três subpastas:
+
+1. **`estatisticas/`**: arquivos CSV com dados gerais do ENADE sobre Alagoas e o Brasil.
+2. **`imagens/`**: gráficos estáticos e animados sobre os dados do ENADE em Alagoas e no Brasil.
+3. **`tabelas/`**: arquivos CSV com os resultados do treinamento dos algoritmos utilizados, bem como a importância das variáveis.
 
 ## Requisitos
 
