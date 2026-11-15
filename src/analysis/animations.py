@@ -173,11 +173,11 @@ def animate_target_distribution(tables_dir: Path = EXPERIMENTS_TABLES_DIR,
 
     fig, ax = _new_figure()
     fig.subplots_adjust(left=0.08, right=0.97, top=0.78, bottom=0.13)
-    _title(fig, "Distribuição da nota geral (NT_GER)",
-           "Percentual de estudantes por faixa de 2 pontos · ENADE 2014–2018")
+    _title(fig, "Distribuição da nota geral do ENADE (NT_GER)",
+           "Percentual de estudantes - ENADE 2014–2018")
     ax.set_xlim(0, 100)
     ax.set_ylim(0, y_max)
-    ax.set_xlabel("NT_GER", color=TEXT_SECONDARY, fontsize=9.5)
+    ax.set_xlabel("Nota Geral do ENADE", color=TEXT_SECONDARY, fontsize=9.5)
     ax.set_ylabel("% de estudantes", color=TEXT_SECONDARY, fontsize=9.5)
     ax.grid(axis="x", visible=False)
 
@@ -240,12 +240,12 @@ def animate_model_comparison(tables_dir: Path = EXPERIMENTS_TABLES_DIR,
     fig, ax = _new_figure()
     fig.subplots_adjust(left=0.22, right=0.95, top=0.78, bottom=0.13)
     _title(fig, "Desempenho dos modelos de regressão",
-           "R² médio na validação cruzada (10 folds) · barras de erro = desvio-padrão")
+           "R² médio e barras de erro (desvio-padrão)")
 
     x_max = max(m["cv_r2_mean"].max() + m["cv_r2_std"].max()
                 for m in metrics.values()) * 1.18
     ax.set_xlim(0, x_max)
-    ax.set_xlabel("R² (validação cruzada)", color=TEXT_SECONDARY, fontsize=9.5)
+    ax.set_xlabel("R²", color=TEXT_SECONDARY, fontsize=9.5)
     ax.xaxis.set_major_formatter(
         plt.FuncFormatter(lambda v, _: f"{v:.3f}".replace(".", ",")))
     ax.grid(axis="y", visible=False)
@@ -327,8 +327,8 @@ def animate_question_importance(tables_dir: Path = EXPERIMENTS_TABLES_DIR,
 
     fig, ax = _new_figure()
     fig.subplots_adjust(left=0.33, right=0.95, top=0.78, bottom=0.13)
-    _title(fig, f"Questões mais importantes · {MODEL_LABELS.get(model, model)}",
-           "Importância agregada das categorias de cada questão (% do total)")
+    _title(fig, f"Fatores socioeconômicos que mais impactaram no {MODEL_LABELS.get(model, model)}",
+           f"Impacto de cada fator socioeconômico na obtenção da nota do unade usando {MODEL_LABELS.get(model, model)} (em %)")
     x_max = union.to_numpy().max() * 1.2
     ax.set_xlim(0, x_max)
     ax.set_ylim(top_n - 0.4, -0.6)
@@ -390,8 +390,8 @@ def _static_question_importance(union: pd.DataFrame, model: str) -> plt.Figure:
     data = union.loc[union.max(axis=1).sort_values().index]
     fig, ax = _new_figure()
     fig.subplots_adjust(left=0.33, right=0.95, top=0.78, bottom=0.13)
-    _title(fig, f"Questões mais importantes · {MODEL_LABELS.get(model, model)}",
-           "Importância agregada das categorias de cada questão (% do total)")
+    _title(fig, f"Fatores socioeconômicos que mais impactaram no {MODEL_LABELS.get(model, model)}",
+           f"Impacto de cada fator socioeconômico na obtenção da nota do unade usando {MODEL_LABELS.get(model, model)} (em %)")
     positions = np.arange(len(data))
     height = 0.36
     x_max = data.to_numpy().max() * 1.15
