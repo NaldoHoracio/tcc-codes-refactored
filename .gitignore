@@ -12,5 +12,6 @@ __pycache__/
 
 # Diretorios e outros arquivos
 data/data-raw/
-*.txt
-*.csv
+data/data-selected/
+#*.txt
+#*.csv

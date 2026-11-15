@@ -1,0 +1,47 @@
+Variável,Código,Descrição
+QE_02,A,Branca
+QE_02,B,Preta
+QE_02,C,Amarela
+QE_02,D,Parda
+QE_02,E,Indígena
+QE_02,F,Não declarou
+QE_08,A,"Até R$ 1.4131,00"
+QE_08,B,"De R$ 1.4131,01 até R$ 2.862,00"
+QE_08,C,"De R$ 2.862,01 até R$ 4.293,00"
+QE_08,D,"De R$ 4.293,01 até 5.724,00"
+QE_08,E,"De R$ 5.724,01 até R$ 9.540,00"
+QE_08,F,"De R$ 9.540,01 até R$ 28.620,00"
+QE_08,G,"Mais de R$ 28.620,00"
+QE_11,A,Nenhum; curso gratuido
+QE_11,B,Nenhum; curso pago
+QE_11,C,ProUni integral
+QE_11,D,"ProUni parcial, apenas"
+QE_11,E,"FIES, apenas"
+QE_11,F,ProUni parcial e FIES
+QE_11,G,"Bolsa pelo estado, governo ou município"
+QE_11,H,Bolsa pela IES
+QE_11,I,Bolsa por outra entidade
+QE_11,J,Financiamento pela IES
+QE_11,K,Financiamento bancário
+QE_13,A,Nenhum
+QE_13,B,PIBIC
+QE_13,C,Extensão
+QE_13,D,Monitoria/tutoria
+QE_13,E,PET
+QE_13,F,Outro
+QE_17,A,Todo em pública
+QE_17,B,Todo em particular
+QE_17,C,Todo no exterior
+QE_17,D,Maior parte em pública
+QE_17,E,Maior parte em particular
+QE_17,F,Brasil e exterior
+QE_18,A,Tradicional
+QE_18,B,Profissionalizante técnico
+QE_18,C,Profissionalizante magistério
+QE_18,D,EJA e/ou supletivo
+QE_18,E,Outro
+QE_23,A,Nenhuma
+QE_23,B,Uma a três
+QE_23,C,Quatro a sete
+QE_23,D,Oito a doze
+QE_23,E,Mais de doze
