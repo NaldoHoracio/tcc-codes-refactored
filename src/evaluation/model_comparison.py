@@ -36,7 +36,7 @@ def compare_regressors(
         fitted_models: estimadores ajustados no conjunto de treinamento.
     """
     X = features
-    y = np.asarray(labels, dtype=float)
+    y = np.asarray(labels, dtype=float).ravel()
     if len(X) != len(y):
         raise ValueError("Features e labels precisam ter o mesmo número de linhas.")
     if len(y) < cv:

@@ -1,7 +1,18 @@
-"""Compatibilidade com o módulo de pré-processamento da versão anterior.
 
-Novos códigos devem importar de ``src.processing_data.preprocessing``.
+"""Compatibilidade com funções de pré-processamento anteriores.
+
+O módulo principal de processamento está em:
+src.data_processing.preprocessing
 """
-from src.processing_data.preprocessing import preprocess_enade_al, processing_set_al
 
-__all__ = ["preprocess_enade_al", "processing_set_al"]
+from src.data_processing.preprocessing import (
+    preprocess_enade,
+    preprocess_enade_al,
+    processing_set_al,
+)
+
+__all__ = [
+    "preprocess_enade",
+    "preprocess_enade_al",
+    "processing_set_al",
+]
